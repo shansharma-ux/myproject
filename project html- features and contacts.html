@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PharmaFlow | Features & Contact</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --green: #047857;
+            --dark: #022c2e;
+            --bg: #f6fbf9;
+            --text: #0f2a2a;
+            --muted: #5b6b73;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', Arial, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        /* Navigation */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 36px;
+            background: #fafdfc;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 22px;
+            font-weight: 800;
+            color: var(--dark);
+            text-decoration: none;
+        }
+
+        .logo span {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: var(--green);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 22px;
+        }
+
+        nav {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 4px;
+        }
+
+        nav a {
+            color: var(--muted);
+            text-decoration: none;
+            padding: 10px 16px;
+            border-radius: 999px;
+            font-size: 15px;
+        }
+
+        nav a:hover,
+        nav a.active {
+            background: var(--green);
+            color: white;
+        }
+
+        /* Hero */
+        .hero {
+            background: var(--dark);
+            color: #e6f5f0;
+            padding: 70px 36px 80px;
+        }
+
+        .hero small {
+            color: #fbbf24;
+            font-weight: 600;
+            letter-spacing: .5px;
+            font-size: 15px;
+        }
+
+        .hero h1 {
+            font-size: clamp(34px, 6vw, 64px);
+            font-weight: 800;
+            margin: 14px 0 22px;
+            line-height: 1.1;
+        }
+
+        .hero p {
+            max-width: 760px;
+            font-size: 19px;
+            color: #d1ebe4;
+        }
+
+        /* Shared section headings */
+        .section-heading {
+            text-align: center;
+            margin-bottom: 42px;
+        }
+
+        .section-heading h2 {
+            color: var(--dark);
+            font-size: clamp(28px, 4vw, 38px);
+            font-weight: 800;
+            margin-bottom: 12px;
+        }
+
+        .section-heading p {
+            color: var(--muted);
+            font-size: 17px;
+            max-width: 650px;
+            margin: auto;
+        }
+
+        /* Features */
+        .features {
+            padding: 75px 36px;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 24px;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        .feature-card {
+            background: white;
+            border: 1px solid #e3ece8;
+            border-radius: 24px;
+            padding: 28px;
+            transition: transform .2s, box-shadow .2s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 28px rgba(2, 44, 46, .08);
+        }
+
+        .feature-icon {
+            width: 52px;
+            height: 52px;
+            border-radius: 16px;
+            background: #e5f5ef;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 25px;
+            margin-bottom: 18px;
+        }
+
+        .feature-card h3 {
+            color: var(--green);
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+
+        .feature-card p {
+            color: var(--muted);
+            font-size: 16px;
+        }
+
+        /* Contact section */
+        .contact-section {
+            padding: 75px 36px;
+            background: #edf7f2;
+        }
+
+        .contact-container {
+            max-width: 1200px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: 0.9fr 1.1fr;
+            gap: 48px;
+            align-items: start;
+        }
+
+        .contact-info h2,
+        .contact-form h2 {
+            font-size: 30px;
+            color: var(--dark);
+            margin-bottom: 14px;
+        }
+
+        .contact-info>p,
+        .contact-form>p {
+            color: var(--muted);
+            margin-bottom: 26px;
+        }
+
+        .info-card {
+            display: flex;
+            gap: 16px;
+            align-items: flex-start;
+            background: white;
+            border: 1px solid #e3ece8;
+            border-radius: 20px;
+            padding: 20px;
+            margin-bottom: 16px;
+        }
+
+        .info-icon {
+            width: 46px;
+            height: 46px;
+            flex-shrink: 0;
+            border-radius: 14px;
+            background: #e5f5ef;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 22px;
+        }
+
+        .info-card h3 {
+            color: var(--dark);
+            font-size: 17px;
+            margin-bottom: 4px;
+        }
+
+        .info-card p,
+        .info-card a {
+            color: var(--muted);
+            font-size: 14px;
+            overflow-wrap: anywhere;
+            text-decoration: none;
+        }
+
+        .info-card a:hover {
+            color: var(--green);
+        }
+
+        /* Contact form */
+        .contact-form {
+            background: white;
+            border: 1px solid #e3ece8;
+            border-radius: 26px;
+            padding: 32px;
+        }
+
+        .form-group {
+            margin-bottom: 18px;
+        }
+
+        .form-group label {
+            display: block;
+            color: var(--text);
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 13px 15px;
+            border: 1px solid #d9e5df;
+            border-radius: 12px;
+            background: #fbfdfc;
+            color: var(--text);
+            font-family: inherit;
+            font-size: 15px;
+            outline: none;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            border-color: var(--green);
+            box-shadow: 0 0 0 3px rgba(4, 120, 87, .1);
+        }
+
+        .form-group textarea {
+            min-height: 130px;
+            resize: vertical;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 14px 22px;
+            background: var(--green);
+            color: white;
+            border: none;
+            border-radius: 999px;
+            font-family: inherit;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background .2s;
+        }
+
+        .submit-btn:hover {
+            background: var(--dark);
+        }
+
+        .form-note {
+            color: var(--muted);
+            font-size: 12px;
+            margin-top: 14px;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 36px 20px;
+            border-top: 1px solid #e3ece8;
+            color: var(--muted);
+            font-size: 15px;
+        }
+
+        /* Responsive design */
+        @media (max-width: 900px) {
+            .feature-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+
+            .contact-container {
+                grid-template-columns: 1fr;
+                gap: 32px;
+            }
+        }
+
+        @media (max-width: 800px) {
+            header {
+                padding: 16px 20px;
+            }
+
+            .hero {
+                padding: 50px 24px;
+            }
+
+            .features,
+            .contact-section {
+                padding: 50px 24px;
+            }
+        }
+
+        @media (max-width: 560px) {
+            .feature-grid {
+                grid-template-columns: 1fr;
+            }
+
+            nav a {
+                padding: 8px 10px;
+                font-size: 13px;
+            }
+
+            .contact-form {
+                padding: 22px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <header>
+        <a href="index.html" class="logo">
+            <span>+</span>PharmaFlow
+        </a>
+
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="#features" class="active">Features</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
+
+    <!-- Hero -->
+    <section class="hero">
+        <small>PHARMAFLOW</small>
+        <h1>Smart solutions for modern pharmacies</h1>
+        <p>
+            Manage medicines, track inventory, process sales,
+            organize supplier records and simplify everyday pharmacy
+            operations with PharmaFlow.
+        </p>
+    </section>
+
+    <!-- Features -->
+    <section class="features" id="features">
+        <div class="section-heading">
+            <h2>Our Features</h2>
+            <p>
+                Everything you need to keep your pharmacy organized,
+                efficient and easy to manage.
+            </p>
+        </div>
+
+        <div class="feature-grid">
+
+            <div class="feature-card">
+                <div class="feature-icon">💊</div>
+                <h3>Medicine Management</h3>
+                <p>
+                    Add, update and search medicines while maintaining
+                    details such as name, category, price and quantity.
+                </p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">📦</div>
+                <h3>Inventory Management</h3>
+                <p>
+                    Monitor available stock and identify medicines
+                    that need replenishment.
+                </p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">⏰</div>
+                <h3>Expiry Tracking</h3>
+                <p>
+                    Track expiry dates and identify medicines
+                    approaching expiration.
+                </p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">🧾</div>
+                <h3>Sales and Billing</h3>
+                <p>
+                    Record sales, calculate bill totals and create
+                    invoices for customer purchases.
+                </p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">🚚</div>
+                <h3>Supplier Management</h3>
+                <p>
+                    Organize supplier details and purchase records
+                    for easier medicine restocking.
+                </p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">👥</div>
+                <h3>Customer Records</h3>
+                <p>
+                    Maintain customer details and relevant records
+                    for convenient reference.
+                </p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">📋</div>
+                <h3>Prescription Records</h3>
+                <p>
+                    Keep prescription-related records organized
+                    for pharmacy workflows.
+                </p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">📊</div>
+                <h3>Admin Dashboard</h3>
+                <p>
+                    Review pharmacy inventory, sales and other
+                    operational information in one place.
+                </p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">🔔</div>
+                <h3>Low-Stock Alerts</h3>
+                <p>
+                    Identify medicines below their set stock levels
+                    to help plan timely reordering.
+                </p>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section class="contact-section" id="contact">
+
+        <div class="section-heading">
+            <h2>Contact Us</h2>
+            <p>
+                Have a question or suggestion? Get in touch with
+                the PharmaFlow team.
+            </p>
+        </div>
+
+        <div class="contact-container">
+
+            <!-- Contact details -->
+            <div class="contact-info">
+                <h2>Get in touch</h2>
+                <p>
+                    We welcome your questions, feedback and suggestions.
+                    Send us a message using the form or contact us directly.
+                </p>
+
+                <div class="info-card">
+                    <div class="info-icon">✉️</div>
+                    <div>
+                        <h3>Email Address</h3>
+                        <p>
+                            <a href="mailto:your-pharmaflow@gmail.com">
+                                your-pharmaflow@gmail.com
+                            </a>
+                        </p>
+                    </div>
+                </div>
+
+                <div class="info-card">
+                    <div class="info-icon">📞</div>
+                    <div>
+                        <h3>Phone Number</h3>
+                        <p>
+                            <a href="tel:+919966565656">
+                                +91 99665 65656
+                            </a>
+                        </p>
+                    </div>
+                </div>
+
+                <div class="info-card">
+                    <div class="info-icon">🕒</div>
+                    <div>
+                        <h3>Working Hours</h3>
+                        <p>Monday – Saturday</p>
+                        <p>9:00 AM – 6:00 PM</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Contact form -->
+            <div class="contact-form">
+                <h2>Send a Message</h2>
+                <p>Fill out the form below to contact us.</p>
+
+                <form action="#" method="post">
+
+                    <div class="form-group">
+                        <label for="name">Full Name</label>
+                        <input type="text" id="name" name="name" placeholder="Enter your full name" autocomplete="name"
+                            required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" name="email" placeholder="Enter your email" autocomplete="email"
+                            required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="subject">Subject</label>
+                        <select id="subject" name="subject" required>
+                            <option value="" disabled selected>
+                                Choose a subject
+                            </option>
+                            <option value="general">General Inquiry</option>
+                            <option value="features">Features</option>
+                            <option value="support">Technical Support</option>
+                            <option value="feedback">Feedback</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message">Your Message</label>
+                        <textarea id="message" name="message" placeholder="Write your message here..."
+                            required></textarea>
+                    </div>
+
+                    <button type="submit" class="submit-btn">
+                        Send Message
+                    </button>
+
+                    <p class="form-note">
+                        Do not include confidential patient information
+                        or sensitive medical records.
+                    </p>
+
+                </form>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        © 2026 PharmaFlow — Pharmacy Management System
+    </footer>
+
+</body>
+
+</html>
